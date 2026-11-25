@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "title": {
+    "en": "allon2's DSH plugins",
+    "zh": "allon2 的 DSH 插件"
+  },
+  "description": {
+    "en": "Community plugin index for DeepSeek Harness, maintained by allon2.",
+    "zh": "由 allon2 维护的 DeepSeek Harness 社区插件索引。"
+  },
+  "metadata": {
+    "categories": {
+      "development": {
+        "title": {
+          "en": "Development",
+          "zh": "开发工具"
+        }
+      }
+    },
+    "labels": {
+      "mcp": {
+        "title": {
+          "en": "MCP",
+          "zh": "MCP 服务器"
+        }
+      },
+      "github": {
+        "title": {
+          "en": "GitHub",
+          "zh": "GitHub"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "@allon2/dsh-github-mcp",
+      "title": {
+        "en": "GitHub MCP",
+        "zh": "GitHub MCP"
+      },
+      "description": {
+        "en": "Connects the remote GitHub MCP server so the agent can search repositories, file and manage issues, and read pull requests with your GitHub account.",
+        "zh": "连接 GitHub 远程 MCP 服务器,让助手可以用你的 GitHub 账号搜索仓库、创建和管理 Issue(提问题)、查看 Pull Request 等,共 70+ 工具。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij4KICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjE4IiByPSIxMS41IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNDdiYmYiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHBhdGggZD0iTTE4IDExLjV2OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjQ3YmJmIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMTgiIGN5PSIyNCIgcj0iMS42IiBmaWxsPSIjMjQ3YmJmIi8+Cjwvc3ZnPgo=",
+      "author": "allon2",
+      "homepage": "https://github.com/allon2/dsh-github-mcp#readme",
+      "repository": {
+        "url": "https://github.com/allon2/dsh-github-mcp"
+      },
+      "metadata": {
+        "category": "development",
+        "keywords": [
+          "github",
+          "mcp",
+          "issues",
+          "pull-request",
+          "repository"
+        ],
+        "labels": [
+          "mcp",
+          "github"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795581566,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/allon2/dsh-github-mcp",
+            "commit": "0274320e680be184e2a22abd6008194921e0460b"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.0"
+          }
+        }
+      ]
+    }
+  ]
+}
