@@ -65,6 +65,18 @@
       },
       "versions": [
         {
+          "version": "1.0.2",
+          "publishTimestamp": 1795583136,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/allon2/dsh-github-mcp",
+            "commit": "e07d0ca0688e0b1823ad9bfdeb82e7e50aec1ed4"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.0"
+          }
+        },
+        {
           "version": "1.0.1",
           "publishTimestamp": 1795582316,
           "source": {
