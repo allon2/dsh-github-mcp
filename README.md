@@ -38,6 +38,11 @@ GitHub 访问令牌**不写在本插件里**:补丁使用 `${credential:GITHUB_P
    `https://raw.githubusercontent.com/allon2/dsh-github-mcp/main/index.json`
 3. 找到 **GitHub MCP**,点击 **安装**,确认后完成。
 
+安装后**无需重启 DSH**,工具立即注册。注意两点:
+
+- 「发现」标签页本身由官方实验插件提供;**首次**安装/启用它时 DSH 会提示重启一次,重启后才能添加索引源。之后安装本插件不再需要重启。
+- 若首次启用恰逢网络较慢而报 `startup timed out`,在插件页把 `mcp-github` 行**关闭再打开**即可重试(每次重试都有完整的 60 秒预算),同样无需重启。
+
 ### 方式二:本地目录安装
 
 把本仓库克隆到本地,然后在 DSH 的插件页或 `plugin_manager` 工具中以目录安装:
@@ -46,7 +51,7 @@ GitHub 访问令牌**不写在本插件里**:补丁使用 `${credential:GITHUB_P
 <E:\你的路径>\dsh-github-mcp
 ```
 
-`plugin_manager`(`install_bundle`,target 填上面的绝对路径)会把它登记进 profile 并立即启用。
+`plugin_manager`(`install_bundle`,target 填上面的绝对路径)会把它登记进 profile 并立即启用,**无需重启 DSH**。
 
 ## 配置 GitHub 凭据
 
@@ -65,7 +70,7 @@ GitHub 访问令牌**不写在本插件里**:补丁使用 `${credential:GITHUB_P
 
 ## 配置参考
 
-`cordis.patch.yml` 中可调整的字段(`@deepseek-ai/dsh-mcp-client` 的配置):
+`cordis.patch.yml` 中可调整的字段(`@deepseek-ai/dsh-mcp-client` 的配置)。修改后把 `mcp-github` 行关闭再开启,即按新配置重新激活,**无需重启 DSH**:
 
 | 字段 | 本插件默认 | 说明 |
 |---|---|---|
@@ -99,7 +104,8 @@ GitHub 访问令牌**不写在本插件里**:补丁使用 `${credential:GITHUB_P
 | `credential "GITHUB_PAT" is not configured` | 按「配置 GitHub 凭据」一节保存凭据 |
 | 401 / Unauthorized | PAT 失效或权限不足;重新生成并更新凭据存储 |
 | 启动即报错、没有 `mcp__github__*` 工具 | 本插件 `failOnStartupError: true`:检查网络能否直连 `api.githubcopilot.com`,凭据是否已保存 |
-| 日志出现 `startup timed out` | 网络到 GitHub 较慢,工具列表同步没在预算内完成;把 `startupTimeoutMs` 调大(如 `120000`)后重启会话重试 |
+| 日志出现 `startup timed out` | 网络到 GitHub 较慢,工具列表同步没在预算内完成;把 `startupTimeoutMs` 调大(如 `120000`),然后把 `mcp-github` 行关闭再打开重试(无需重启 DSH) |
+| 装完后工具列表里没有 `mcp__github__*` | 无需重启:先把 `mcp-github` 行关闭再打开重新激活;仍失败再按上行排查网络与凭据 |
 | 想临时禁用 | 插件页中关掉 GitHub MCP 的 `mcp-github` 行即可,不影响其他插件 |
 
 ## 安全说明
