@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "GitHub MCP",
+    "description": "Connects the remote GitHub MCP server so the agent can search repositories, file and manage issues, and read pull requests with your GitHub account.",
+    "detail": "docs/DETAIL.md"
+  }
+}

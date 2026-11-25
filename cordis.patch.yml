@@ -1,0 +1,18 @@
+# GitHub 远程 MCP 服务器(从 Claude Code 的 .claude.json 迁移)
+# 工具将以 mcp__github__<tool> 的名称注册,与 Claude Code 一致。
+# Authorization 头中的 ${credential:GITHUB_PAT} 在运行时从凭据存储解析:
+#   DSH 设置 → 凭据,或直接编辑 ~/.dsh/.credentials.yaml 的 refs 段:
+#   refs:
+#     GITHUB_PAT: ghp_xxx
+- insert:
+    - id: mcp-github
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: github
+        transport: streamable-http
+        url: 'https://api.githubcopilot.com/mcp/'
+        headers:
+          Authorization: 'Bearer ${credential:GITHUB_PAT}'
+        expandTemplates: true
+        startupTimeoutMs: 30000
+        failOnStartupError: true

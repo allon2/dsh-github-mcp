@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "GitHub MCP",
+    "description": "连接 GitHub 远程 MCP 服务器,让助手可以用你的 GitHub 账号搜索仓库、创建和管理 Issue(提问题)、查看 Pull Request 等。",
+    "detail": "docs/DETAIL.md"
+  }
+}
