@@ -14,5 +14,7 @@
         headers:
           Authorization: 'Bearer ${credential:GITHUB_PAT}'
         expandTemplates: true
-        startupTimeoutMs: 30000
+        # 官方服务器生成完整工具列表约需 10–15 秒(网络波动时更久),
+        # 客户端默认 30 秒可能不够,导致 startup timed out。
+        startupTimeoutMs: 60000
         failOnStartupError: true

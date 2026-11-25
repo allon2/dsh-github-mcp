@@ -1,6 +1,6 @@
 # GitHub MCP
 
-为 [DeepSeek Harness](https://deepseek.com) 接入 **GitHub 官方远程 MCP 服务器**(`https://api.githubcopilot.com/mcp/`),让助手用你的 GitHub 账号完成日常开发工作:创建和管理 Issue(提问题)、查看与评审 Pull Request、搜索仓库与代码、读取文件内容等,共 **70+ 工具**。
+为 [DeepSeek Harness](https://deepseek.com) 接入 **GitHub 官方远程 MCP 服务器**(`https://api.githubcopilot.com/mcp/`),让助手用你的 GitHub 账号完成日常开发工作:创建和管理 Issue(提问题)、查看与评审 Pull Request、搜索仓库与代码、读取文件内容等,共 **46 个工具**。
 
 配置迁移自 Claude Code 的 `mcpServers.github`,工具命名与 Claude Code 完全一致(`mcp__github__<tool>`),权限规则和使用习惯可以直接延续。
 
@@ -74,7 +74,7 @@ GitHub 访问令牌**不写在本插件里**:补丁使用 `${credential:GITHUB_P
 | `url` | `https://api.githubcopilot.com/mcp/` | 服务器端点 |
 | `headers` | `Authorization: Bearer ${credential:GITHUB_PAT}` | 鉴权头,凭据运行时解析 |
 | `expandTemplates` | `true` | 允许 `${credential:…}` 模板 |
-| `startupTimeoutMs` | `30000` | 首次连接与工具同步的预算 |
+| `startupTimeoutMs` | `60000` | 首次连接与工具同步的预算;官方服务器生成完整工具列表约需 10–15 秒(网络波动时更久),默认 30 秒偏紧,故设 60 秒 |
 | `failOnStartupError` | `true` | 连接失败时拒绝插件激活(尽早暴露凭据/网络问题) |
 | `toolCallTimeoutMs` | `60000`(客户端默认) | 单次工具调用超时 |
 | `reconnect.*` | 客户端默认 | 断线自动重连(最多 10 次,指数退避) |
@@ -99,6 +99,7 @@ GitHub 访问令牌**不写在本插件里**:补丁使用 `${credential:GITHUB_P
 | `credential "GITHUB_PAT" is not configured` | 按「配置 GitHub 凭据」一节保存凭据 |
 | 401 / Unauthorized | PAT 失效或权限不足;重新生成并更新凭据存储 |
 | 启动即报错、没有 `mcp__github__*` 工具 | 本插件 `failOnStartupError: true`:检查网络能否直连 `api.githubcopilot.com`,凭据是否已保存 |
+| 日志出现 `startup timed out` | 网络到 GitHub 较慢,工具列表同步没在预算内完成;把 `startupTimeoutMs` 调大(如 `120000`)后重启会话重试 |
 | 想临时禁用 | 插件页中关掉 GitHub MCP 的 `mcp-github` 行即可,不影响其他插件 |
 
 ## 安全说明

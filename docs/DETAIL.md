@@ -7,4 +7,4 @@
 - 浏览与评审 Pull Request
 - 读取仓库文件、提交、Release 与标签
 
-共 70+ 工具,命名与 Claude Code 一致(`mcp__github__<tool>`)。安装后需要先在凭据存储中保存 `GITHUB_PAT`(GitHub Personal Access Token),详见插件详情页或仓库 README。在对话里直接说「帮我看一下 `owner/repo` 的 open issue」即可开始使用。
+共 46 个工具,命名与 Claude Code 一致(`mcp__github__<tool>`)。安装后需要先在凭据存储中保存 `GITHUB_PAT`(GitHub Personal Access Token),详见插件详情页或仓库 README。在对话里直接说「帮我看一下 `owner/repo` 的 open issue」即可开始使用。
